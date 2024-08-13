@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseline Performance</title>
+    <link href="css/styles.css" rel="stylesheet"> <!-- Link to custom styles -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="display-4">Baseline Performance</h1>
+        <p>This page loads all resources, including images, videos, scripts, and styles, upfront without any optimization techniques.</p>
+        
+        <div class="media-container">
+            <!-- Images loaded immediately -->
+            <img src="images/large-image1.jpg" alt="Baseline Image 1" class="img-fluid">
+            <img src="images/large-image2.jpg" alt="Baseline Image 2" class="img-fluid">
+            <img src="images/large-image3.jpg" alt="Baseline Image 3" class="img-fluid">
+            
+            <!-- Videos loaded immediately -->
+            <video controls class="img-fluid">
+                <source src="videos/large-video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls class="img-fluid">
+                <source src="videos/large-video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div id="metrics" class="mt-4">
+            <p>Load Time: <span id="load-time"></span> ms</p> <!-- Placeholder for load time -->
+            <p>Page Size: <span id="page-size"></span> KB</p> <!-- Placeholder for page size -->
+        </div>
+        <!-- JavaScript to simulate loading performance metrics -->
+        <script src="js/script.js"></script>
+    </div>
+</body>
+</html>
