@@ -1,11 +1,20 @@
-// Simulate loading performance metrics for baseline
 document.addEventListener("DOMContentLoaded", function() {
-    // Fetch fake data (in a real scenario, this would be a real API call)
-    const data = {
-        loadTime: 1200, // Simulated load time in milliseconds
-        pageSize: 5000 // Simulated page size in KB
-    };
-    // Update the DOM with the performance metrics
-    document.getElementById('load-time').textContent = data.loadTime;
-    document.getElementById('page-size').textContent = data.pageSize;
+    // Calculate load time when the window is fully loaded
+    window.addEventListener("load", function() {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        document.getElementById('load-time').textContent = loadTime;
+    });
+
+    // Calculate total page size by summing the size of all resources loaded
+    const resources = performance.getEntriesByType("resource");
+    let totalSize = 0;
+    resources.forEach(resource => {
+        if (resource.transferSize) {  // Only include resources that have a transfer size
+            totalSize += resource.transferSize;
+        }
+    });
+
+    // Convert total size from bytes to kilobytes
+    const totalSizeKB = (totalSize / 1024).toFixed(2);
+    document.getElementById('page-size').textContent = totalSizeKB;
 });
