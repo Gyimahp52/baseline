@@ -1,4 +1,3 @@
-/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -36,27 +35,13 @@ body {
     max-width: 600px;
     border-radius: 8px;
     transition: opacity 0.3s ease-in-out;
-    opacity: 0; /* Initially hidden */
+    opacity: 1; 
 }
 
-/* Apply this class when the lazy-loaded content is fully loaded */
-.media-container img.loaded,
-.media-container video.loaded {
-    opacity: 1;
-}
-
-/* Placeholder styling for video */
-.video-placeholder {
-    background-color: #e0e0e0; /* Gray background to mimic video loading */
-}
-
-/* Handle layout shift when an image or video fails to load */
-.media-container img.error,
-.media-container video.error {
-    background-color: #f8d7da;
-    border: 2px solid #f5c6cb;
-    content: "Failed to load";
-    text-align: center;
-    padding: 20px;
-    display: block;
+/* Style for individual media items */
+.media-container img,
+.media-container video {
+    width: 48%;
+    height: auto;
+    max-width: 600px;
 }
